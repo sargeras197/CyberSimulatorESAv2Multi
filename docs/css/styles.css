@@ -391,6 +391,129 @@ h2 {
     margin: 0 auto;
 }
 
+.quiz-config {
+    background: #f8faff;
+    border: 1px solid #dce4ff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.quiz-config p {
+    color: #4d5885;
+    margin-bottom: 14px;
+}
+
+.topic-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.topic-option {
+    border: 2px solid #d3dcff;
+    border-radius: 8px;
+    padding: 12px;
+    background: #fff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.topic-option:hover {
+    border-color: #5d70c2;
+    box-shadow: 0 2px 10px rgba(65, 84, 166, 0.1);
+}
+
+.topic-option.active {
+    border-color: #293672;
+    background: #eef2ff;
+}
+
+.topic-option h3 {
+    color: #293672;
+    margin-bottom: 6px;
+    font-size: 1rem;
+}
+
+.topic-option p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #5c678f;
+}
+
+#active-topic-title {
+    margin-bottom: 16px;
+    font-size: 1.2rem;
+}
+
+.question-hint {
+    color: #4f5b87;
+    margin-bottom: 10px;
+}
+
+.match-wrapper {
+    border: 1px solid #d7def7;
+    background: #fbfcff;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+.matching-row {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.matching-left {
+    color: #293672;
+    font-weight: 500;
+}
+
+.matching-select {
+    padding: 8px;
+    border: 1px solid #cdd6fa;
+    border-radius: 6px;
+    background: #fff;
+}
+
+.mapping-legend {
+    background: #edf2ff;
+    border: 1px solid #cfdaff;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.mapping-legend p {
+    margin-bottom: 6px;
+    color: #2e3a75;
+}
+
+.mapping-legend p:last-child {
+    margin-bottom: 0;
+}
+
+.text-answer-wrapper {
+    margin-top: 8px;
+}
+
+.text-answer-input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ccd5f7;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.text-answer-input:focus {
+    outline: none;
+    border-color: #4154a6;
+    box-shadow: 0 0 0 2px rgba(65, 84, 166, 0.15);
+}
+
 .question {
     background: #f8f9fa;
     padding: 20px;

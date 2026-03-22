@@ -17,9 +17,17 @@
     <div class="container">
         <div class="quiz-container">
             <h1>Тест з кібербезпеки</h1>
+
+            <div class="quiz-config" id="quiz-config">
+                <h2>Оберіть вид тестування</h2>
+                <p>Доступно 5 форматів: одна правильна, кілька правильних, співпадіння колонок, відповідність 1-а 2-б 3-в, введення слова.</p>
+                <div id="test-type-list" class="topic-list"></div>
+                <button id="start-quiz-btn" class="btn">Почати тест</button>
+            </div>
             
-            <div id="quiz-section">
+            <div id="quiz-section" style="display: none;">
                 <form id="quizForm">
+                    <h2 id="active-topic-title"></h2>
                     <div id="questions-container"></div>
                     <button type="submit" class="btn">Завершити тест</button>
                 </form>
@@ -28,6 +36,7 @@
             <div id="result-section" style="display: none;">
                 <div class="result">
                     <h2>Результат</h2>
+                    <p id="type-display"></p>
                     <p id="score-display"></p>
                     <p id="time-display"></p>
                     <button onclick="location.reload()" class="btn">Пройти ще раз</button>

@@ -281,6 +281,104 @@ h2 {
     margin-bottom: 14px;
 }
 
+.subsection-detail .detail-lead {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    background: #f3f7ff;
+    border-left: 4px solid #293672;
+    padding: 12px 14px;
+    border-radius: 6px;
+}
+
+.subsection-detail h4 {
+    color: #1f2c61;
+    margin-top: 18px;
+    margin-bottom: 10px;
+}
+
+.subsection-detail h5 {
+    color: #293672;
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.info-box {
+    background: #f9fbff;
+    border: 1px solid #d9e3ff;
+    border-radius: 8px;
+    padding: 14px;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0 16px;
+    font-size: 0.95rem;
+}
+
+.comparison-table th,
+.comparison-table td {
+    border: 1px solid #d6dcef;
+    padding: 10px;
+    vertical-align: top;
+}
+
+.comparison-table th {
+    background: #edf2ff;
+    color: #1e2a5f;
+    text-align: left;
+}
+
+.scheme-flow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    margin: 12px 0 14px;
+}
+
+.flow-step {
+    background: #eef3ff;
+    border: 1px solid #cad6ff;
+    padding: 8px 10px;
+    border-radius: 6px;
+    color: #223274;
+    font-weight: 600;
+}
+
+.flow-arrow {
+    color: #4154a6;
+    font-weight: bold;
+}
+
+.concept-map {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin: 10px 0 14px;
+}
+
+.concept-card {
+    background: linear-gradient(180deg, #ffffff 0%, #f7f9ff 100%);
+    border: 1px solid #d7e0ff;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+.mini-note {
+    background: #fff8e8;
+    border: 1px solid #f1d89d;
+    border-radius: 8px;
+    padding: 12px;
+}
+
 .stats-section {
     margin-top: 40px;
     padding: 20px;

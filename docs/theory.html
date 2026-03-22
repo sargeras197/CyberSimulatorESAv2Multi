@@ -19,84 +19,190 @@
         
         <div class="theory-section">
             <div class="card">
-                <h2>🔒 Основи кібербезпеки</h2>
-                <p><strong>Кібербезпека</strong> - це практика захисту систем, мереж і програм від цифрових атак.</p>
+                <h2>Розділ 1. Теоретичні основи кібербезпеки та кіберзагроз</h2>
+                <h3>1.1 Поняття кібербезпеки та кіберзлочинності</h3>
                 <ul style="text-align: left; padding-left: 20px;">
-                    <li>Конфіденційність - захист даних від несанкціонованого доступу</li>
-                    <li>Цілісність - забезпечення точності та повноти даних</li>
-                    <li>Доступність - забезпечення доступу до інформації для авторизованих користувачів</li>
+                    <li>Визначення кібербезпеки за підходами ISO та NIST</li>
+                    <li>Різниця між інформаційною безпекою та кібербезпекою</li>
+                    <li>Кіберпростір як окреме середовище взаємодії та ризиків</li>
+                </ul>
+                <h3>1.2 Класифікація кіберзагроз</h3>
+                <ul style="text-align: left; padding-left: 20px;">
+                    <li>Соціальна інженерія</li>
+                    <li>Технічні атаки</li>
+                    <li>Комбіновані атаки</li>
+                    <li>Внутрішні та зовнішні загрози</li>
+                </ul>
+                <h3>1.3 Моделі атак (Attack Models)</h3>
+                <ul style="text-align: left; padding-left: 20px;">
+                    <li>Kill Chain</li>
+                    <li>MITRE ATT&amp;CK</li>
+                    <li>STRIDE як модель загроз</li>
+                </ul>
+                <h3>1.4 Вразливості та ризики</h3>
+                <ul style="text-align: left; padding-left: 20px;">
+                    <li>Що таке vulnerability</li>
+                    <li>CVE / CVSS</li>
+                    <li>Оцінка ризику</li>
+                </ul>
+                <h3>1.5 Людський фактор у кібербезпеці</h3>
+                <ul style="text-align: left; padding-left: 20px;">
+                    <li>Людський фактор як головна причина багатьох атак</li>
+                    <li>Типові помилки користувачів</li>
+                    <li>Роль психології у виникненні інцидентів</li>
                 </ul>
             </div>
 
             <div class="card">
-                <h2>🔑 Паролі та автентифікація</h2>
-                <p><strong>Створення надійних паролів:</strong></p>
+                <h2>Розділ 2. Соціальна інженерія як основа більшості атак</h2>
+                <h3>2.1 Поняття соціальної інженерії</h3>
+                <h3>2.2 Психологічні принципи впливу</h3>
                 <ul style="text-align: left; padding-left: 20px;">
-                    <li>Мінімум 12 символів</li>
-                    <li>Комбінація великих і малих літер, цифр та спецсимволів</li>
-                    <li>Унікальні паролі для різних сервісів</li>
-                    <li>Використання менеджерів паролів</li>
+                    <li>Довіра</li>
+                    <li>Страх</li>
+                    <li>Терміновість</li>
+                    <li>Авторитет</li>
                 </ul>
-                <p><strong>Двофакторна автентифікація (2FA)</strong> додає додатковий рівень захисту.</p>
+                <h3>2.3 Канали реалізації атак</h3>
+                <ul style="text-align: left; padding-left: 20px;">
+                    <li>Соціальні мережі</li>
+                    <li>Телефон</li>
+                    <li>Email</li>
+                    <li>Платформи оголошень</li>
+                </ul>
+                <h3>2.4 Життєвий цикл атаки</h3>
+                <ul style="text-align: left; padding-left: 20px;">
+                    <li>Збір інформації</li>
+                    <li>Контакт</li>
+                    <li>Маніпуляція</li>
+                    <li>Отримання вигоди</li>
+                </ul>
+                <p><strong>Практичні теми в межах розділу:</strong> фейкові профілі, месенджери, телефонні шахрайства.</p>
             </div>
 
             <div class="card">
-                <h2>🎣 Фішинг та соціальна інженерія</h2>
-                <p><strong>Фішинг</strong> - це спроба отримати конфіденційну інформацію шляхом обману.</p>
-                <p><strong>Ознаки фішингу:</strong></p>
+                <h2>Розділ 3. Платформи як середовище кіберзагроз</h2>
+                <h3>3.1 Цифрові платформи як інфраструктура атак</h3>
                 <ul style="text-align: left; padding-left: 20px;">
-                    <li>Підозрілий відправник</li>
-                    <li>Терміновість або загрози</li>
-                    <li>Граматичні помилки</li>
-                    <li>Незвичайні посилання</li>
-                    <li>Запит персональних даних</li>
+                    <li>Маркетплейси</li>
+                    <li>Соціальні мережі</li>
+                    <li>Онлайн-сервіси</li>
                 </ul>
-            </div>
-
-            <div class="card">
-                <h2>🦠 Віруси та шкідливе ПЗ</h2>
-                <p><strong>Types шкідливого програмного забезпечення:</strong></p>
+                <h3>3.2 Типологія шахрайств на платформах</h3>
                 <ul style="text-align: left; padding-left: 20px;">
-                    <li><strong>Віруси</strong> - програми, що розмножуються та заражають файли</li>
-                    <li><strong>Трояни</strong> - маскуються під легальне ПЗ</li>
-                    <li><strong>Черв'яки</strong> - самостійно поширюються в мережі</li>
-                    <li><strong>Ransomware</strong> - шифрує файли та вимагає викуп</li>
-                    <li><strong>Spyware</strong> - збирає інформацію про користувача</li>
+                    <li>Передоплата</li>
+                    <li>Фейкові товари</li>
+                    <li>Псевдопослуги</li>
                 </ul>
-            </div>
-
-            <div class="card">
-                <h2>🔥 Брандмауери та мережева безпека</h2>
-                <p><strong>Брандмауер (Firewall)</strong> - система, що фільтрує мережевий трафік.</p>
-                <p><strong>Типи брандмауерів:</strong></p>
+                <h3>3.3 Fraud-as-a-Service (FaaS)</h3>
                 <ul style="text-align: left; padding-left: 20px;">
-                    <li>Мережеві брандмауери</li>
-                    <li>Хостові брандмауери</li>
-                    <li>Програмні брандмауери</li>
+                    <li>Продаж схем шахрайства</li>
+                    <li>Готові інструменти для зловмисників</li>
                 </ul>
-                <p><strong>VPN (Virtual Private Network)</strong> створює безпечне з'єднання через публічну мережу.</p>
-            </div>
-
-            <div class="card">
-                <h2>🛡️ Безпека в інтернеті</h2>
+                <h3>3.4 Анонімність та цифрова ідентичність</h3>
                 <ul style="text-align: left; padding-left: 20px;">
-                    <li>Використовуйте HTTPS замість HTTP</li>
-                    <li>Будьте обережні з публічним Wi-Fi</li>
-                    <li>Регулярно оновлюйте програмне забезпечення</li>
-                    <li>Робіть резервні копії важливих даних</li>
-                    <li>Використовуйте антивірусне ПЗ</li>
+                    <li>Фейкові акаунти</li>
+                    <li>Мультиакаунти</li>
                 </ul>
             </div>
 
             <div class="card">
-                <h2>⚡ Типи кібератак</h2>
+                <h2>Розділ 4. Фішинг та цифрові атаки на дані</h2>
+                <h3>4.1 Теорія фішингу</h3>
                 <ul style="text-align: left; padding-left: 20px;">
-                    <li><strong>DDoS</strong> - перевантаження сервера запитами</li>
-                    <li><strong>Brute Force</strong> - підбір паролів</li>
-                    <li><strong>SQL Injection</strong> - атака на базу даних</li>
-                    <li><strong>Man-in-the-Middle</strong> - перехоплення комунікації</li>
-                    <li><strong>Zero-day</strong> - експлуатація невідомих вразливостей</li>
+                    <li>Spear phishing</li>
+                    <li>Whaling</li>
+                    <li>Clone phishing</li>
                 </ul>
+                <h3>4.2 Архітектура фішингової атаки</h3>
+                <ul style="text-align: left; padding-left: 20px;">
+                    <li>Домен</li>
+                    <li>Сайт-клон</li>
+                    <li>Збір даних</li>
+                </ul>
+                <h3>4.3 Методи обходу захисту</h3>
+                <ul style="text-align: left; padding-left: 20px;">
+                    <li>Підміна URL</li>
+                    <li>SSL-маніпуляції</li>
+                    <li>Homograph attack</li>
+                </ul>
+                <h3>4.4 Захисні механізми</h3>
+                <ul style="text-align: left; padding-left: 20px;">
+                    <li>SPF, DKIM, DMARC</li>
+                    <li>Браузерні фільтри</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Розділ 5. Фінансові кіберзлочини</h2>
+                <h3>5.1 Економіка кіберзлочинності</h3>
+                <ul style="text-align: left; padding-left: 20px;">
+                    <li>Як заробляють шахраї</li>
+                    <li>Чорні ринки</li>
+                </ul>
+                <h3>5.2 Банківські атаки</h3>
+                <ul style="text-align: left; padding-left: 20px;">
+                    <li>Carding</li>
+                    <li>Phishing</li>
+                    <li>Smishing</li>
+                </ul>
+                <h3>5.3 Криптовалюти та шахрайство</h3>
+                <ul style="text-align: left; padding-left: 20px;">
+                    <li>Rug pull</li>
+                    <li>Fake ICO</li>
+                    <li>Криптопіраміди</li>
+                </ul>
+                <h3>5.4 Відмивання грошей (money mule)</h3>
+            </div>
+
+            <div class="card">
+                <h2>Розділ 6. Шкідливе ПЗ та технічні атаки</h2>
+                <h3>6.1 Класифікація malware</h3>
+                <ul style="text-align: left; padding-left: 20px;">
+                    <li>Trojan</li>
+                    <li>Ransomware</li>
+                    <li>Spyware</li>
+                </ul>
+                <h3>6.2 Вектори зараження</h3>
+                <ul style="text-align: left; padding-left: 20px;">
+                    <li>Email</li>
+                    <li>APK-файли</li>
+                    <li>Exploit</li>
+                </ul>
+                <h3>6.3 Поведінка шкідливого ПЗ</h3>
+                <ul style="text-align: left; padding-left: 20px;">
+                    <li>Persistence</li>
+                    <li>Privilege escalation</li>
+                </ul>
+                <h3>6.4 Методи аналізу malware</h3>
+                <ul style="text-align: left; padding-left: 20px;">
+                    <li>Статичний аналіз</li>
+                    <li>Динамічний аналіз</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Розділ 7. Методи захисту та кібергігієна</h2>
+                <h3>7.1 Принципи кібербезпеки</h3>
+                <ul style="text-align: left; padding-left: 20px;">
+                    <li>CIA triad: Confidentiality, Integrity, Availability</li>
+                </ul>
+                <h3>7.2 Zero Trust модель</h3>
+                <h3>7.3 Аутентифікація та авторизація</h3>
+                <ul style="text-align: left; padding-left: 20px;">
+                    <li>MFA</li>
+                    <li>2FA</li>
+                </ul>
+                <h3>7.4 Поведінкова безпека користувача</h3>
+                <p>Формування безпечного мислення, цифрової уважності та дисципліни щоденних дій.</p>
+            </div>
+
+            <div class="card">
+                <h2>Розділ 8. Правові та етичні аспекти</h2>
+                <h3>8.1 Законодавство України</h3>
+                <h3>8.2 Міжнародні норми</h3>
+                <h3>8.3 Відповідальність за кіберзлочини</h3>
+                <h3>8.4 Етика кібербезпеки</h3>
             </div>
         </div>
     </div>
@@ -104,5 +210,47 @@
     <footer style="text-align: center; padding: 20px; margin-top: 40px; background-color: #ffffff; border-top: 2px solid #293672; color: #333; font-size: 14px;">
         <p style="margin: 0;">Розробник: <a href="https://sargeras197.github.io/contacts/" target="_blank" style="color: #293672; text-decoration: underline; font-weight: bold;">Сергій Євдокимов</a> | v. 1.0</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const cards = document.querySelectorAll('.theory-section .card');
+
+            cards.forEach(function (card) {
+                const title = card.querySelector('h2');
+                if (!title) {
+                    return;
+                }
+
+                title.setAttribute('role', 'button');
+                title.setAttribute('tabindex', '0');
+                title.setAttribute('aria-expanded', 'false');
+
+                function toggleCard() {
+                    const isOpen = card.classList.contains('open');
+
+                    cards.forEach(function (otherCard) {
+                        otherCard.classList.remove('open');
+                        const otherTitle = otherCard.querySelector('h2');
+                        if (otherTitle) {
+                            otherTitle.setAttribute('aria-expanded', 'false');
+                        }
+                    });
+
+                    if (!isOpen) {
+                        card.classList.add('open');
+                        title.setAttribute('aria-expanded', 'true');
+                    }
+                }
+
+                title.addEventListener('click', toggleCard);
+                title.addEventListener('keydown', function (event) {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        toggleCard();
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

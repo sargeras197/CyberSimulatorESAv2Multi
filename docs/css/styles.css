@@ -175,6 +175,69 @@ h2 {
     margin-bottom: 20px;
 }
 
+.theory-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.theory-section .card {
+    text-align: left;
+    padding: 0;
+    overflow: hidden;
+}
+
+.theory-section .card h2 {
+    margin: 0;
+    padding: 20px 56px 20px 20px;
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+}
+
+.theory-section .card h2:focus {
+    outline: 3px solid #4154a6;
+    outline-offset: -3px;
+}
+
+.theory-section .card h2::after {
+    content: "+";
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.4rem;
+    color: #293672;
+}
+
+.theory-section .card.open h2::after {
+    content: "-";
+}
+
+.theory-section .card > :not(h2) {
+    display: none;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.theory-section .card.open > :not(h2) {
+    display: block;
+}
+
+.theory-section .card h3 {
+    margin-top: 14px;
+    margin-bottom: 8px;
+    color: #293672;
+}
+
+.theory-section .card ul {
+    margin-bottom: 10px;
+}
+
+.theory-section .card p {
+    margin-bottom: 16px;
+}
+
 .stats-section {
     margin-top: 40px;
     padding: 20px;

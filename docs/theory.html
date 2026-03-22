@@ -215,15 +215,29 @@
         document.addEventListener('DOMContentLoaded', function () {
             const cards = document.querySelectorAll('.theory-section .card');
 
+            function extractSubsectionContent(subsectionTitle) {
+                let html = '';
+                let sibling = subsectionTitle.nextElementSibling;
+
+                while (sibling && sibling.tagName !== 'H3' && sibling.tagName !== 'H2') {
+                    html += sibling.outerHTML;
+                    const nextSibling = sibling.nextElementSibling;
+                    sibling.remove();
+                    sibling = nextSibling;
+                }
+
+                return html.trim();
+            }
+
             cards.forEach(function (card) {
-                const title = card.querySelector('h2');
-                if (!title) {
+                const sectionTitle = card.querySelector('h2');
+                if (!sectionTitle) {
                     return;
                 }
 
-                title.setAttribute('role', 'button');
-                title.setAttribute('tabindex', '0');
-                title.setAttribute('aria-expanded', 'false');
+                sectionTitle.setAttribute('role', 'button');
+                sectionTitle.setAttribute('tabindex', '0');
+                sectionTitle.setAttribute('aria-expanded', 'false');
 
                 function toggleCard() {
                     const isOpen = card.classList.contains('open');
@@ -238,16 +252,44 @@
 
                     if (!isOpen) {
                         card.classList.add('open');
-                        title.setAttribute('aria-expanded', 'true');
+                        sectionTitle.setAttribute('aria-expanded', 'true');
                     }
                 }
 
-                title.addEventListener('click', toggleCard);
-                title.addEventListener('keydown', function (event) {
+                sectionTitle.addEventListener('click', toggleCard);
+                sectionTitle.addEventListener('keydown', function (event) {
                     if (event.key === 'Enter' || event.key === ' ') {
                         event.preventDefault();
                         toggleCard();
                     }
+                });
+
+                const subsectionTitles = card.querySelectorAll('h3');
+                subsectionTitles.forEach(function (subsectionTitle) {
+                    const subsectionContentHtml = extractSubsectionContent(subsectionTitle);
+
+                    subsectionTitle.classList.add('subsection-link');
+                    subsectionTitle.setAttribute('role', 'link');
+                    subsectionTitle.setAttribute('tabindex', '0');
+
+                    function openSubsectionPage() {
+                        const details = {
+                            sectionTitle: sectionTitle.textContent.trim(),
+                            subsectionTitle: subsectionTitle.textContent.trim(),
+                            contentHtml: subsectionContentHtml
+                        };
+
+                        sessionStorage.setItem('theorySelectedSubsection', JSON.stringify(details));
+                        window.location.href = 'theory-subsection.html';
+                    }
+
+                    subsectionTitle.addEventListener('click', openSubsectionPage);
+                    subsectionTitle.addEventListener('keydown', function (event) {
+                        if (event.key === 'Enter' || event.key === ' ') {
+                            event.preventDefault();
+                            openSubsectionPage();
+                        }
+                    });
                 });
             });
         });

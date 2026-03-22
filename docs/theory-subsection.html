@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Підрозділ теорії - Release Simulator ESA</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">Release Simulator ESA</div>
+        <div class="nav-user">
+            <a href="theory.html" style="color: #293672; text-decoration: none;">← Назад до теорії</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="subsection-detail" id="subsectionDetail"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const detailContainer = document.getElementById('subsectionDetail');
+            const savedRaw = sessionStorage.getItem('theorySelectedSubsection');
+
+            if (!savedRaw) {
+                detailContainer.innerHTML = [
+                    '<h2>Підрозділ не вибрано</h2>',
+                    '<p>Оберіть підрозділ на сторінці теорії, щоб переглянути деталі.</p>'
+                ].join('');
+                return;
+            }
+
+            let data;
+            try {
+                data = JSON.parse(savedRaw);
+            } catch (error) {
+                detailContainer.innerHTML = [
+                    '<h2>Помилка завантаження підрозділу</h2>',
+                    '<p>Не вдалося прочитати дані підрозділу. Поверніться до теорії й оберіть підрозділ повторно.</p>'
+                ].join('');
+                return;
+            }
+
+            const sectionTitle = data.sectionTitle || 'Розділ теорії';
+            const subsectionTitle = data.subsectionTitle || 'Підрозділ';
+            const contentHtml = data.contentHtml && data.contentHtml.trim()
+                ? data.contentHtml
+                : '<p>Деталізований матеріал для цього підрозділу буде додано пізніше.</p>';
+
+            detailContainer.innerHTML = [
+                '<h2>' + sectionTitle + '</h2>',
+                '<h3>' + subsectionTitle + '</h3>',
+                contentHtml
+            ].join('');
+        });
+    </script>
+</body>
+</html>

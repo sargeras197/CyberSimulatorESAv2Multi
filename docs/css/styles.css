@@ -230,12 +230,55 @@ h2 {
     color: #293672;
 }
 
+.theory-section .card h3.subsection-link {
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.theory-section .card h3.subsection-link:hover {
+    color: #4154a6;
+}
+
+.theory-section .card h3.subsection-link:focus {
+    outline: 2px solid #4154a6;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
 .theory-section .card ul {
     margin-bottom: 10px;
 }
 
 .theory-section .card p {
     margin-bottom: 16px;
+}
+
+.subsection-detail {
+    background: #fff;
+    padding: 28px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    text-align: left;
+}
+
+.subsection-detail h2 {
+    margin-bottom: 10px;
+}
+
+.subsection-detail h3 {
+    color: #293672;
+    margin-bottom: 16px;
+}
+
+.subsection-detail ul {
+    padding-left: 20px;
+    margin-bottom: 14px;
+}
+
+.subsection-detail p {
+    color: #333;
+    margin-bottom: 14px;
 }
 
 .stats-section {

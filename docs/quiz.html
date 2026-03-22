@@ -20,8 +20,12 @@
 
             <div class="quiz-config" id="quiz-config">
                 <h2>Оберіть вид тестування</h2>
-                <p>Доступно 5 форматів: одна правильна, кілька правильних, співпадіння колонок, відповідність 1-а 2-б 3-в, введення слова.</p>
+                <p>Крок 1: оберіть вид тесту. Крок 2: оберіть тематику всередині цього виду тесту.</p>
                 <div id="test-type-list" class="topic-list"></div>
+                <div class="theme-preview" id="theme-preview">
+                    <h3>Крок 2: оберіть тематику</h3>
+                    <div id="type-theme-list" class="topic-list"></div>
+                </div>
                 <button id="start-quiz-btn" class="btn">Почати тест</button>
             </div>
             
@@ -37,6 +41,7 @@
                 <div class="result">
                     <h2>Результат</h2>
                     <p id="type-display"></p>
+                    <p id="theme-display"></p>
                     <p id="score-display"></p>
                     <p id="time-display"></p>
                     <button onclick="location.reload()" class="btn">Пройти ще раз</button>

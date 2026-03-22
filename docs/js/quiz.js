@@ -1,9 +1,11 @@
 let startTime;
 let activeQuestions = [];
 let activeTestTypeId = 'single';
+let activeThemeId = null;
 
 window.addEventListener('DOMContentLoaded', function () {
     renderTestTypeOptions();
+    renderThemeOptions(activeTestTypeId);
 
     document.getElementById('start-quiz-btn').addEventListener('click', startQuiz);
     document.getElementById('quizForm').addEventListener('submit', handleSubmit);
@@ -33,20 +35,61 @@ function renderTestTypeOptions() {
         option.appendChild(description);
 
         option.addEventListener('click', function () {
-            document.querySelectorAll('.topic-option').forEach(function (item) {
+            document.querySelectorAll('#test-type-list .topic-option').forEach(function (item) {
                 item.classList.remove('active');
             });
 
             option.classList.add('active');
             activeTestTypeId = testType.id;
+            renderThemeOptions(activeTestTypeId);
         });
 
         typeList.appendChild(option);
     });
 }
 
+function renderThemeOptions(testTypeId) {
+    const previewContainer = document.getElementById('type-theme-list');
+    previewContainer.innerHTML = '';
+
+    const themes = getThemeLabelsForTestType(testTypeId);
+    activeThemeId = themes.length ? themes[0].id : null;
+
+    themes.forEach(function (theme, index) {
+        const option = document.createElement('div');
+        option.className = 'topic-option theme-option';
+        option.dataset.themeId = theme.id;
+
+        if (index === 0) {
+            option.classList.add('active');
+        }
+
+        const title = document.createElement('h3');
+        title.textContent = (index + 1) + '. ' + theme.label;
+        option.appendChild(title);
+
+        option.addEventListener('click', function () {
+            document.querySelectorAll('#type-theme-list .theme-option').forEach(function (item) {
+                item.classList.remove('active');
+            });
+
+            option.classList.add('active');
+            activeThemeId = theme.id;
+        });
+
+        previewContainer.appendChild(option);
+    });
+}
+
 function startQuiz() {
-    const questions = getQuestionsByTestType(activeTestTypeId);
+    if (!activeThemeId) {
+        alert('Спочатку оберіть тематику для цього виду тесту.');
+        return;
+    }
+
+    const questions = getQuestionsByTestType(activeTestTypeId).filter(function (question) {
+        return question.theme === activeThemeId;
+    });
 
     if (!questions.length) {
         alert('Для обраного виду тестування ще немає питань.');
@@ -58,9 +101,10 @@ function startQuiz() {
     const selectedType = QUIZ_TEST_TYPES.find(function (testType) {
         return testType.id === activeTestTypeId;
     });
+    const selectedThemeLabel = getThemeLabel(activeThemeId);
 
     document.getElementById('active-topic-title').textContent = selectedType
-        ? selectedType.title
+        ? selectedType.title + ' | Тема: ' + selectedThemeLabel
         : 'Тест з кібербезпеки';
 
     document.getElementById('quiz-config').style.display = 'none';
@@ -81,6 +125,13 @@ function displayQuestions(questions) {
         const questionTitle = document.createElement('h3');
         questionTitle.textContent = (index + 1) + '. ' + q.question;
         questionDiv.appendChild(questionTitle);
+
+        if (q.theme) {
+            const themeTag = document.createElement('p');
+            themeTag.className = 'question-theme';
+            themeTag.textContent = 'Тема: ' + getThemeLabel(q.theme);
+            questionDiv.appendChild(themeTag);
+        }
 
         if (q.type === 'single') {
             renderSingleQuestion(questionDiv, q, index);
@@ -296,7 +347,7 @@ function handleSubmit(e) {
     const minutes = Math.floor(timeSpent / 60);
     const seconds = Math.floor(timeSpent % 60);
 
-    saveTestLog(score, activeQuestions.length - score, timeSpent, activeTestTypeId);
+    saveTestLog(score, activeQuestions.length - score, timeSpent, activeTestTypeId, activeThemeId);
 
     document.getElementById('quiz-section').style.display = 'none';
     document.getElementById('result-section').style.display = 'block';
@@ -307,6 +358,8 @@ function handleSubmit(e) {
 
     document.getElementById('type-display').textContent =
         'Формат: ' + (selectedType ? selectedType.title : 'Невідомий формат');
+    document.getElementById('theme-display').textContent =
+        'Тематика: ' + getThemeLabel(activeThemeId);
 
     const percentage = ((score / activeQuestions.length) * 100).toFixed(1);
     document.getElementById('score-display').textContent =
@@ -397,7 +450,7 @@ function evaluateQuestion(q, index) {
     return { answered: false, correct: false };
 }
 
-function saveTestLog(successes, fails, timeSpent, testTypeId) {
+function saveTestLog(successes, fails, timeSpent, testTypeId, themeId) {
     const testLogs = JSON.parse(localStorage.getItem('testLogs') || '[]');
 
     const selectedType = QUIZ_TEST_TYPES.find(function (testType) {
@@ -409,6 +462,8 @@ function saveTestLog(successes, fails, timeSpent, testTypeId) {
         testName: 'quiz',
         testTypeId: testTypeId,
         testTypeTitle: selectedType ? selectedType.title : 'Невідомий формат',
+        themeId: themeId,
+        themeTitle: getThemeLabel(themeId),
         timestamp: new Date().toISOString(),
         attempts: 1,
         successes: successes,

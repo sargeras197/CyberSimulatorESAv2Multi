@@ -36,8 +36,81 @@ const PHISHING_EXAMPLES = [
 ];
 
 window.addEventListener('DOMContentLoaded', function() {
-    displayPhishingExamples();
+    renderPracticeBlockOptions();
 });
+
+function renderPracticeBlockOptions() {
+    const blocks = [
+        {
+            id: 'password',
+            title: 'Блок 1: Перевірка паролів',
+            description: 'Оцініть надійність пароля та отримайте рекомендації.'
+        },
+        {
+            id: 'phishing',
+            title: 'Блок 2: Розпізнавання фішингу',
+            description: 'Визначте, які повідомлення є фішинговими.'
+        },
+        {
+            id: 'practices',
+            title: 'Блок 3: Безпечні практики',
+            description: 'Оберіть правильні щоденні практики кібергігієни.'
+        }
+    ];
+
+    const container = document.getElementById('practice-block-list');
+    container.innerHTML = '';
+
+    blocks.forEach(function(block) {
+        const option = document.createElement('div');
+        option.className = 'topic-option';
+        option.dataset.blockId = block.id;
+
+        option.innerHTML = '<h3>' + block.title + '</h3><p>' + block.description + '</p>';
+
+        option.addEventListener('click', function() {
+            document.querySelectorAll('#practice-block-list .topic-option').forEach(function(item) {
+                item.classList.remove('active');
+            });
+
+            option.classList.add('active');
+            openPracticeBlock(block.id);
+        });
+
+        container.appendChild(option);
+    });
+}
+
+function openPracticeBlock(blockId) {
+    const workspace = document.getElementById('practice-workspace');
+    const title = document.getElementById('practice-workspace-title');
+    const description = document.getElementById('practice-workspace-description');
+
+    workspace.style.display = 'block';
+
+    document.getElementById('block-password').style.display = 'none';
+    document.getElementById('block-phishing').style.display = 'none';
+    document.getElementById('block-practices').style.display = 'none';
+
+    if (blockId === 'password') {
+        title.textContent = '🔐 Тест 1: Перевірка паролів';
+        description.textContent = 'Перевірте, чи є ваш пароль у списку найпопулярніших (небезпечних) паролів.';
+        document.getElementById('block-password').style.display = 'block';
+        return;
+    }
+
+    if (blockId === 'phishing') {
+        title.textContent = '📧 Тест 2: Розпізнавання фішингу';
+        description.textContent = 'Визначте, які з наведених листів є фішинговими.';
+        document.getElementById('block-phishing').style.display = 'block';
+        displayPhishingExamples();
+        return;
+    }
+
+    title.textContent = '🛡️ Тест 3: Безпечні практики';
+    description.textContent = 'Оберіть усі безпечні практики з наведеного списку.';
+    document.getElementById('block-practices').style.display = 'block';
+}
 
 function checkPassword() {
     const password = document.getElementById('password-test').value;
@@ -84,6 +157,7 @@ function checkPassword() {
 
 function displayPhishingExamples() {
     const container = document.getElementById('phishing-examples');
+    container.innerHTML = '';
     
     PHISHING_EXAMPLES.forEach((email, index) => {
         const emailDiv = document.createElement('div');

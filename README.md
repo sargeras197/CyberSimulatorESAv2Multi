@@ -1,4 +1,4 @@
-# Статичний сайт Release Simulator ESA для GitHub Pages
+# Статичний сайт CyberSimulator для GitHub Pages
 
 Цей проект було перетворено на статичний веб-сайт для розміщення на GitHub Pages.
 
